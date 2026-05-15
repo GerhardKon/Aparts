@@ -74,7 +74,7 @@ export default function Hero() {
             <SPBPanorama scrollY={scrollY} isDay={isDay} />
 
             {/* Content */}
-            <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 pt-32 sm:pt-40 pb-44 min-h-screen flex flex-col">
+            <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 pt-24 sm:pt-32 md:pt-40 pb-32 sm:pb-44 min-h-screen flex flex-col">
                 <div className="flex-1 flex flex-col items-center text-center max-w-4xl mx-auto pt-8">
                     {/* Weather badge */}
                     <motion.div

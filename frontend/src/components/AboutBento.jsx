@@ -50,11 +50,11 @@ export default function AboutBento() {
                 </div>
 
                 {/* Bento Tetris */}
-                <div className="grid grid-cols-12 grid-rows-[repeat(6,minmax(80px,auto))] gap-4 sm:gap-6">
+                <div className="grid grid-cols-12 md:grid-rows-[repeat(6,minmax(80px,auto))] gap-4 sm:gap-6 auto-rows-min">
                     {/* Hero card - location */}
                     <motion.div
                         {...FADE}
-                        className="col-span-12 md:col-span-7 row-span-3 relative brass-border overflow-hidden group bg-[#242220] lift"
+                        className="col-span-12 md:col-span-7 md:row-span-3 relative brass-border overflow-hidden group bg-[#242220] lift"
                         data-testid="bento-location"
                     >
                         <div
@@ -90,7 +90,7 @@ export default function AboutBento() {
                     <motion.div
                         {...FADE}
                         transition={{ ...FADE.transition, delay: 0.1 }}
-                        className="col-span-12 md:col-span-5 row-span-6 relative overflow-hidden brass-border bg-[#242220] lift"
+                        className="col-span-12 md:col-span-5 md:row-span-6 relative overflow-hidden brass-border bg-[#242220] lift"
                         data-testid="bento-design"
                     >
                         <div
@@ -153,7 +153,7 @@ export default function AboutBento() {
                     <motion.div
                         {...FADE}
                         transition={{ ...FADE.transition, delay: 0.2 }}
-                        className="col-span-6 md:col-span-3 row-span-3 brass-border bg-[#242220] p-6 sm:p-8 flex flex-col justify-between lift"
+                        className="col-span-6 md:col-span-3 md:row-span-3 brass-border bg-[#242220] p-6 sm:p-8 flex flex-col justify-between lift"
                         data-testid="bento-cleaning"
                     >
                         <Broom
@@ -176,7 +176,7 @@ export default function AboutBento() {
                     <motion.div
                         {...FADE}
                         transition={{ ...FADE.transition, delay: 0.25 }}
-                        className="col-span-6 md:col-span-2 row-span-3 brass-border bg-[#005B4B]/30 p-6 sm:p-7 flex flex-col justify-between lift relative overflow-hidden"
+                        className="col-span-6 md:col-span-2 md:row-span-3 brass-border bg-[#005B4B]/30 p-6 sm:p-7 flex flex-col justify-between lift relative overflow-hidden"
                         data-testid="bento-breakfast"
                     >
                         <Bed
@@ -196,7 +196,7 @@ export default function AboutBento() {
                     <motion.div
                         {...FADE}
                         transition={{ ...FADE.transition, delay: 0.3 }}
-                        className="col-span-12 md:col-span-7 row-span-3 brass-border bg-[#242220] p-6 sm:p-8 lift"
+                        className="col-span-12 md:col-span-7 md:row-span-3 brass-border bg-[#242220] p-6 sm:p-8 lift"
                         data-testid="bento-kitchen-wifi"
                     >
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 h-full">

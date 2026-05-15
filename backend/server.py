@@ -24,8 +24,6 @@ db = client[os.environ['DB_NAME']]
 
 EMERGENT_LLM_KEY = os.environ.get('EMERGENT_LLM_KEY', '')
 OPENWEATHER_API_KEY = os.environ.get('OPENWEATHER_API_KEY', '')
-TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN', '')
-TELEGRAM_ADMIN_CHAT_ID = os.environ.get('TELEGRAM_ADMIN_CHAT_ID', '')
 
 app = FastAPI(title="Kurdyukov Aparts API")
 api_router = APIRouter(prefix="/api")
@@ -91,7 +89,7 @@ class Review(BaseModel):
 
 # ----------------- System prompt for AI concierge -----------------
 
-CONCIERGE_SYSTEM_PROMPT = """Ты — Александр, гостеприимный и интеллигентный консьерж апарт-отеля «Kurdyukov Aparts» в Санкт-Петербурге.
+CONCIERGE_SYSTEM_PROMPT = """Ты — Александр, гостеприимный и интеллигентный консьерж апарт-отеля «Kurdyukov» в Санкт-Петербурге.
 
 О ОТЕЛЕ:
 — Формат: апарт-отель, студии.
@@ -316,51 +314,6 @@ def fetch_spb_weather() -> Dict[str, Any]:
         }
 
 
-# ----------------- Telegram notifications -----------------
-
-def send_telegram_lead_notification(lead: Dict[str, Any]) -> None:
-    """Send a formatted message about a new lead to the admin Telegram chat."""
-    if not TELEGRAM_BOT_TOKEN or not TELEGRAM_ADMIN_CHAT_ID:
-        return
-
-    name = lead.get("name") or "—"
-    phone = lead.get("phone") or "—"
-    email = lead.get("email") or "—"
-    check_in = lead.get("check_in") or "—"
-    check_out = lead.get("check_out") or "—"
-    guests = lead.get("guests") or "—"
-    message = lead.get("message") or ""
-    source = lead.get("source") or "—"
-    created = lead.get("created_at") or ""
-
-    text = (
-        "🛎 *Новая заявка — Kurdyukov Aparts*\n"
-        f"\n👤 *Гость:* {name}"
-        f"\n📞 *Телефон:* `{phone}`"
-        f"\n📧 *Email:* {email}"
-        f"\n📅 *Заезд:* {check_in}  →  *Выезд:* {check_out}"
-        f"\n👥 *Гости:* {guests}"
-        f"\n🌐 *Источник:* {source}"
-    )
-    if message:
-        text += f"\n💬 *Сообщение:* {message}"
-    text += f"\n🕓 {created}"
-
-    try:
-        requests.post(
-            f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
-            json={
-                "chat_id": TELEGRAM_ADMIN_CHAT_ID,
-                "text": text,
-                "parse_mode": "Markdown",
-                "disable_web_page_preview": True,
-            },
-            timeout=6,
-        )
-    except Exception as e:
-        logging.warning("Telegram send failed: %s", e)
-
-
 # ----------------- Routes -----------------
 
 @api_router.get("/")
@@ -398,11 +351,6 @@ async def create_lead(lead: LeadIn):
     doc["created_at"] = datetime.now(timezone.utc).isoformat()
     await db.leads.insert_one(doc)
     doc.pop("_id", None)
-    # Notify admin via Telegram (best-effort, never breaks the API)
-    try:
-        send_telegram_lead_notification(doc)
-    except Exception as e:
-        logging.warning("Telegram notify failed: %s", e)
     return LeadOut(**doc)
 
 

@@ -70,10 +70,12 @@ export default function Header({ onOpenAssistant }) {
                         </svg>
                     </div>
                     <div className="flex flex-col leading-none">
-                        <span className="font-display text-xl tracking-wide text-white">
+                        <span className="font-display text-xl sm:text-2xl tracking-wide text-white">
                             Kurdyukov
                         </span>
-                        <span className="overline mt-0.5">Aparts</span>
+                        <span className="overline mt-1 text-[9px] sm:text-[10px]">
+                            Санкт-Петербург
+                        </span>
                     </div>
                 </a>
 

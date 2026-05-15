@@ -62,7 +62,7 @@ export default function Location() {
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                     {/* Stylized map */}
-                    <div className="lg:col-span-7 relative brass-border bg-[#1a1817] overflow-hidden aspect-[16/11]">
+                    <div className="lg:col-span-7 relative brass-border bg-[#1a1817] overflow-hidden aspect-[4/3] sm:aspect-[16/11]">
                         <div className="architect-bg absolute inset-0 opacity-40" />
                         {/* Decorative street lines */}
                         <svg
@@ -140,15 +140,15 @@ export default function Location() {
                         ))}
 
                         {/* Legend */}
-                        <div className="absolute bottom-4 left-4 glass brass-border px-4 py-3 max-w-xs">
-                            <div className="overline mb-2">Наши филиалы</div>
-                            <div className="space-y-1">
+                        <div className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 glass brass-border px-2.5 sm:px-4 py-2 sm:py-3 max-w-[200px] sm:max-w-xs">
+                            <div className="overline mb-1.5 sm:mb-2 text-[9px] sm:text-[11px]">Наши филиалы</div>
+                            <div className="space-y-0.5 sm:space-y-1">
                                 {BRANCHES.map((b) => (
                                     <div
                                         key={b.id}
-                                        className="flex items-center gap-2 text-xs text-white/80"
+                                        className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-white/80"
                                     >
-                                        <span className="h-4 w-4 rounded-full bg-[#005B4B] border border-[#C5A059] flex items-center justify-center text-[9px] text-white font-bold">
+                                        <span className="h-3.5 w-3.5 sm:h-4 sm:w-4 rounded-full bg-[#005B4B] border border-[#C5A059] flex items-center justify-center text-[8px] sm:text-[9px] text-white font-bold">
                                             {b.id}
                                         </span>
                                         {b.name}

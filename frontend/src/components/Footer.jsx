@@ -26,7 +26,7 @@ export default function Footer({ onOpenAssistant }) {
                             </svg>
                             <div>
                                 <div className="font-display text-2xl text-white">
-                                    Kurdyukov Aparts
+                                    Kurdyukov
                                 </div>
                                 <div className="overline">в ритме Петербурга</div>
                             </div>
@@ -168,7 +168,7 @@ export default function Footer({ onOpenAssistant }) {
                 <div className="brass-line mb-6" />
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] tracking-wider text-white/45">
                     <div>
-                        © {year} Kurdyukov Aparts · Все права защищены
+                        © {year} Kurdyukov · Все права защищены
                     </div>
                     <div className="flex gap-6">
                         <span>Заезд: с 11:00 · Выезд: до 15:00</span>
