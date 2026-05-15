@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { CalendarBlank, UsersThree, ArrowRight, Check } from "@phosphor-icons/react";
-import { createLead } from "../lib/api";
+import { CalendarBlank, UsersThree, ArrowRight } from "@phosphor-icons/react";
 
 export default function QuickBookingForm() {
     const today = new Date().toISOString().slice(0, 10);
@@ -10,40 +9,6 @@ export default function QuickBookingForm() {
     const [checkIn, setCheckIn] = useState(today);
     const [checkOut, setCheckOut] = useState(tomorrow);
     const [guests, setGuests] = useState(2);
-    const [open, setOpen] = useState(false);
-    const [submitting, setSubmitting] = useState(false);
-    const [done, setDone] = useState(false);
-    const [errorMsg, setErrorMsg] = useState("");
-    const [name, setName] = useState("");
-    const [phone, setPhone] = useState("");
-
-    const onCheck = () => {
-        setOpen(true);
-    };
-
-    const onSubmit = async (e) => {
-        e.preventDefault();
-        setSubmitting(true);
-        setErrorMsg("");
-        try {
-            await createLead({
-                name,
-                phone,
-                check_in: checkIn,
-                check_out: checkOut,
-                guests: Number(guests),
-                source: "hero-quick",
-            });
-            setDone(true);
-        } catch (err) {
-            console.error(err);
-            setErrorMsg(
-                "Не удалось отправить заявку. Напишите нам в WhatsApp +7 952 225 41 41."
-            );
-        } finally {
-            setSubmitting(false);
-        }
-    };
 
     const scrollToBook = () => {
         document
@@ -106,96 +71,17 @@ export default function QuickBookingForm() {
                         </select>
                     </div>
                 </div>
-                <div className="col-span-2 md:col-span-3 flex flex-col gap-2">
+                <div className="col-span-2 md:col-span-3">
                     <button
-                        onClick={onCheck}
+                        onClick={scrollToBook}
                         className="btn-emerald magnetic w-full px-4 sm:px-5 py-3 sm:py-3.5 text-[10px] sm:text-xs tracking-[0.18em] uppercase font-semibold rounded-sm flex items-center justify-center gap-2"
                         data-testid="hero-check-availability"
                     >
                         Проверить наличие
                         <ArrowRight size={14} />
                     </button>
-                    <button
-                        onClick={scrollToBook}
-                        className="text-[10px] sm:text-[11px] tracking-[0.18em] uppercase text-[#C5A059] hover:text-[#D4AF37] transition-colors"
-                        data-testid="hero-jump-to-bnovo"
-                    >
-                        полное бронирование ↓
-                    </button>
                 </div>
             </div>
-
-            {open && !done && (
-                <motion.form
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    onSubmit={onSubmit}
-                    className="mt-5 pt-5 border-t border-[#C5A059]/20 grid grid-cols-1 md:grid-cols-12 gap-3 items-end"
-                    data-testid="hero-lead-form"
-                >
-                    <div className="md:col-span-4">
-                        <label className="overline block mb-2">Как к вам обращаться</label>
-                        <input
-                            type="text"
-                            required
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            placeholder="Имя"
-                            className="brass-border bg-[#1a1817]/40 px-3 py-3 w-full text-white text-sm outline-none"
-                            data-testid="hero-lead-name"
-                        />
-                    </div>
-                    <div className="md:col-span-4">
-                        <label className="overline block mb-2">Телефон</label>
-                        <input
-                            type="tel"
-                            required
-                            value={phone}
-                            onChange={(e) => setPhone(e.target.value)}
-                            placeholder="+7 ___ ___ __ __"
-                            className="brass-border bg-[#1a1817]/40 px-3 py-3 w-full text-white text-sm outline-none"
-                            data-testid="hero-lead-phone"
-                        />
-                    </div>
-                    <button
-                        type="submit"
-                        disabled={submitting}
-                        className="md:col-span-4 btn-ghost-brass px-5 py-3.5 text-xs tracking-[0.18em] uppercase font-semibold rounded-sm disabled:opacity-60"
-                        data-testid="hero-lead-submit"
-                    >
-                        {submitting ? "Отправляем..." : "Перезвоните мне"}
-                    </button>
-                    {errorMsg && (
-                        <div
-                            className="md:col-span-12 text-xs text-red-300/90 tracking-wide"
-                            data-testid="hero-lead-error"
-                        >
-                            {errorMsg}
-                        </div>
-                    )}
-                </motion.form>
-            )}
-
-            {done && (
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="mt-5 pt-5 border-t border-[#C5A059]/20 flex items-center gap-3 text-[#C5A059]"
-                    data-testid="hero-lead-success"
-                >
-                    <div className="h-9 w-9 rounded-full border border-[#C5A059] flex items-center justify-center heart-pop">
-                        <Check size={16} weight="bold" />
-                    </div>
-                    <div>
-                        <div className="font-display text-xl text-white">
-                            Спасибо! Александр свяжется в ближайшее время.
-                        </div>
-                        <div className="text-xs text-white/60 mt-1">
-                            А пока — загляните в каталог номеров.
-                        </div>
-                    </div>
-                </motion.div>
-            )}
         </motion.div>
     );
 }
