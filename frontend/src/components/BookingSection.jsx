@@ -39,8 +39,8 @@ export default function BookingSection() {
                                         Выберите даты и гостей
                                     </div>
                                     <div className="text-sm text-white/60">
-                                        Стандартный заезд с 14:00, выезд до
-                                        12:00.
+                                        Стандартный заезд с 11:00, выезд до
+                                        15:00.
                                     </div>
                                 </div>
                             </div>

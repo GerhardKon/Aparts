@@ -137,7 +137,7 @@ export default function AboutBento() {
                                     </div>
                                     <div className="brass-border p-3">
                                         <div className="font-display text-2xl text-[#C5A059]">
-                                            14:00
+                                            11:00
                                         </div>
                                         <div className="text-[10px] tracking-widest uppercase text-white/55 mt-1">
                                             заезд
@@ -208,11 +208,10 @@ export default function AboutBento() {
                                 <div>
                                     <span className="overline">Кухня</span>
                                     <h4 className="font-display text-xl text-white mt-2 leading-snug">
-                                        Полноценная кухня
+                                        Мини-кухня
                                     </h4>
                                     <p className="text-white/55 text-xs mt-2">
-                                        Плита, посудомойка, чайник, кофе — для
-                                        долгого пребывания.
+                                        Плита, чайник, микроволновка и посуда — всё для долгого пребывания.
                                     </p>
                                 </div>
                             </div>

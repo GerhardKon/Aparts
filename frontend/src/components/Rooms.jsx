@@ -33,8 +33,12 @@ export default function Rooms() {
                             Наши <em className="text-[#C5A059] italic">номера.</em>
                         </h2>
                         <p className="text-white/60 mt-4 max-w-xl leading-relaxed">
-                            Пять адресов на Гончарной улице и 4-й Советской — в
-                            шаговой доступности от Невского проспекта.
+                            Пять адресов в самом центре — Гончарная (10, 11, 17),
+                            Невский 124 и 4-я Советская, 8. Цена от{" "}
+                            <span className="text-[#C5A059] font-semibold">
+                                1 800 ₽
+                            </span>{" "}
+                            за ночь.
                         </p>
                     </div>
                     <a

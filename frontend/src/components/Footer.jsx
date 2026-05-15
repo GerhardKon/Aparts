@@ -32,9 +32,9 @@ export default function Footer({ onOpenAssistant }) {
                             </div>
                         </div>
                         <p className="text-white/55 text-sm leading-relaxed max-w-md">
-                            Апарт-отель класса «Комфорт» в историческом сердце
-                            Северной столицы. Гончарная улица и 4-я Советская —
-                            эстетика петербургской жизни в шаговой доступности от
+                            Апарт-отель в историческом сердце Северной столицы.
+                            Гончарная (10/11/17), Невский 124 и 4-я Советская, 8 —
+                            студии от 1 800 ₽/ночь в шаговой доступности от
                             Невского проспекта.
                         </p>
                     </div>
@@ -171,7 +171,7 @@ export default function Footer({ onOpenAssistant }) {
                         © {year} Kurdyukov Aparts · Все права защищены
                     </div>
                     <div className="flex gap-6">
-                        <span>Заезд: с 14:00 · Выезд: до 12:00</span>
+                        <span>Заезд: с 11:00 · Выезд: до 15:00</span>
                         <a href="#" className="hover:text-[#C5A059]">
                             Политика конфиденциальности
                         </a>

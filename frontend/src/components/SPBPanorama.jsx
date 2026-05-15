@@ -83,6 +83,7 @@ export default function SPBPanorama({ scrollY = 0, isDay = true }) {
                 className="absolute bottom-0 left-0 w-full h-[38vh] sm:h-[50vh]"
                 style={{
                     transform: `translateY(${scrollY * 0.12}px)`,
+                    opacity: 0.85,
                 }}
             >
                 <g fill={midColor}>
