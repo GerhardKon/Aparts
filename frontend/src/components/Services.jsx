@@ -44,8 +44,8 @@ const SERVICES = [
     },
     {
         icon: Television,
-        title: "Домашний кинотеатр",
-        desc: "Проектор и подборка фильмов для уютного вечера.",
+        title: "Smart TV в номере",
+        desc: "Смотрите любимые сериалы и YouTube на большом экране.",
     },
     {
         icon: PawPrint,

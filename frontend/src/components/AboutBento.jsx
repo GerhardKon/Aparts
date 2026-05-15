@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FilmReel, Broom, Bed, ForkKnife, WifiHigh } from "@phosphor-icons/react";
+import { MapPin, Broom, Bed, ForkKnife, WifiHigh } from "@phosphor-icons/react";
 
 const TEX_FABRIC =
     "https://static.prod-images.emergentagent.com/jobs/a5222b22-df61-46af-9de0-edb0b92bd3c7/images/ad781e25380d15f03873e6eadc9e4c8b0bbb14fca6b539fec17fd7cd8b5813fc.png";
@@ -51,11 +51,11 @@ export default function AboutBento() {
 
                 {/* Bento Tetris */}
                 <div className="grid grid-cols-12 grid-rows-[repeat(6,minmax(80px,auto))] gap-4 sm:gap-6">
-                    {/* Hero card - cinema */}
+                    {/* Hero card - location */}
                     <motion.div
                         {...FADE}
                         className="col-span-12 md:col-span-7 row-span-3 relative brass-border overflow-hidden group bg-[#242220] lift"
-                        data-testid="bento-cinema"
+                        data-testid="bento-location"
                     >
                         <div
                             className="absolute inset-0 opacity-30 transition-opacity duration-700 group-hover:opacity-50"
@@ -66,20 +66,21 @@ export default function AboutBento() {
                             }}
                         />
                         <div className="relative z-10 h-full p-8 sm:p-12 flex flex-col justify-between min-h-[280px]">
-                            <FilmReel
+                            <MapPin
                                 size={42}
                                 weight="thin"
                                 className="text-[#C5A059]"
                             />
                             <div>
-                                <span className="overline">Кино дома</span>
+                                <span className="overline">Центр</span>
                                 <h3 className="font-display font-light text-3xl sm:text-4xl text-white mt-2 leading-tight">
-                                    Домашний кинотеатр
-                                    <br />в каждом номере
+                                    5 минут пешком
+                                    <br />до Невского проспекта
                                 </h3>
                                 <p className="text-white/65 mt-3 text-sm max-w-md leading-relaxed">
-                                    Проектор, мягкий свет и тишина — формула
-                                    тёплого вечера после прогулки по набережной.
+                                    Гончарная и 4-я Советская — квартал, где
+                                    Невский встречается с Лиговским. Утром кофе у
+                                    вокзала, вечером — спектакль в Александринке.
                                 </p>
                             </div>
                         </div>

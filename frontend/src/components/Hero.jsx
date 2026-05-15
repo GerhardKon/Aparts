@@ -65,56 +65,12 @@ export default function Hero() {
             }}
         >
             {/* Architectural background grid */}
-            <div className="absolute inset-0 architect-bg opacity-30" />
-
-            {/* Realistic SPB photo background — deepest layer with slow parallax */}
-            <div
-                className="absolute inset-x-0 bottom-0 h-[88vh] sm:h-[92vh] pointer-events-none"
-                style={{
-                    transform: `translateY(${scrollY * 0.02}px) scale(1.05)`,
-                    willChange: "transform",
-                }}
-                aria-hidden="true"
-            >
-                <div
-                    className="absolute inset-0 bg-no-repeat bg-cover bg-center"
-                    style={{
-                        backgroundImage:
-                            "url('https://images.unsplash.com/photo-1635194490859-221bf0173708?auto=format&fit=crop&w=2400&q=80')",
-                        filter: isDay
-                            ? "brightness(0.4) saturate(0.8) contrast(1.05) blur(1px)"
-                            : "brightness(0.22) saturate(1.1) hue-rotate(-15deg) blur(1px)",
-                        transition: "filter 3s ease",
-                    }}
-                />
-                {/* Vignette + atmospheric mask */}
-                <div
-                    className="absolute inset-0"
-                    style={{
-                        background: isDay
-                            ? "linear-gradient(180deg, rgba(26,24,23,0.55) 0%, rgba(26,24,23,0.25) 40%, rgba(26,24,23,0.7) 100%)"
-                            : "linear-gradient(180deg, rgba(10,20,30,0.45) 0%, rgba(24,42,58,0.35) 40%, rgba(6,16,26,0.85) 100%)",
-                        transition: "background 3s ease",
-                    }}
-                />
-                {/* Weather-condition tint */}
-                {weather.condition === "fog" && (
-                    <div className="absolute inset-0 bg-[rgba(200,210,220,0.18)] backdrop-blur-[2px]" />
-                )}
-                {(weather.condition === "rain" ||
-                    weather.condition === "drizzle" ||
-                    weather.condition === "thunderstorm") && (
-                    <div className="absolute inset-0 bg-[rgba(20,30,40,0.32)]" />
-                )}
-                {weather.condition === "snow" && (
-                    <div className="absolute inset-0 bg-[rgba(220,225,235,0.12)]" />
-                )}
-            </div>
+            <div className="absolute inset-0 architect-bg opacity-50" />
 
             {/* Sky / weather particles */}
             <WeatherLayer condition={weather.condition} isDay={isDay} />
 
-            {/* SPB silhouette layers (architectural overlay on top of photo) */}
+            {/* SPB silhouette layers */}
             <SPBPanorama scrollY={scrollY} isDay={isDay} />
 
             {/* Content */}
