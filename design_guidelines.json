@@ -1,0 +1,115 @@
+{
+  "theme_and_archetype": {
+    "archetype": "5 (Jewel & Luxury) with architectural touches",
+    "theme": "Dark",
+    "rationale": "Matches the 'Тёмная Шиншилла' and 'Изумрудный' choices from the prompt. Focuses on cinematic depth, tactile surfaces, and premium luxury hospitality. 'Time of Day' will shift temperature but keep a sophisticated baseline."
+  },
+  "typography": {
+    "fonts": {
+      "heading": "Cormorant Garamond, serif",
+      "body": "Manrope, sans-serif"
+    },
+    "rationale": "Cormorant Garamond brings a high-end, tactile, architectural elegance with excellent Cyrillic support, breaking the 'Inter' genericism. Manrope acts as a sterile, precise geometric counterweight for high legibility.",
+    "sizes": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl tracking-tighter leading-none font-light",
+      "h2": "text-3xl sm:text-4xl tracking-tight leading-tight font-medium",
+      "h3": "text-xl sm:text-2xl tracking-tight leading-snug font-medium",
+      "h4": "text-lg sm:text-xl",
+      "body": "text-base leading-relaxed font-light",
+      "overline": "text-xs tracking-[0.2em] uppercase font-bold text-[#C5A059]"
+    }
+  },
+  "colors": {
+    "backgrounds": {
+      "main": "#1A1817",
+      "surface_1": "#242220",
+      "glass": "rgba(26, 24, 23, 0.6)"
+    },
+    "text": {
+      "primary": "#FFFFFF",
+      "secondary": "#EBEBEB",
+      "muted": "#A3A09E"
+    },
+    "accents": {
+      "primary": "#005B4B",
+      "primary_hover": "#007A65",
+      "secondary": "#C5A059",
+      "secondary_hover": "#D4AF37",
+      "warm_light": "#FDF8E4",
+      "cool_twilight": "#182A3A"
+    }
+  },
+  "layout_and_spacing": {
+    "grid_system": "Asymmetrical 'Tetris' grid for Marketing sections, 1px brass borders for architectural framing.",
+    "bento_grid": "grid-cols-1 md:grid-cols-12 gap-8 with overlapping spans (col-span-8, col-span-4).",
+    "spacing_scale": "Generous padding: p-8 for cards, p-24 to p-32 for section vertical rhythm.",
+    "borders": "1px solid rgba(197, 160, 89, 0.3) for elegant architectural definition. No heavy shadows, rely on inner glows and sharp edges."
+  },
+  "components": {
+    "header": {
+      "style": "Glassmorphism: backdrop-blur-xl bg-[#1A1817]/60 border-b border-[#C5A059]/20.",
+      "behavior": "Sticky z-50 with fluid logo resize on scroll."
+    },
+    "hero": {
+      "layout": "Full height (min-h-screen) with multi-layered SVG silhouette of St. Petersburg at the bottom.",
+      "effects": "Parallax depth, dynamic color overlay driven by 'time of day' (warm day vs cool twilight), live weather overlay (canvas/particles for rain or fog).",
+      "booking_form": "Floating architectural glass card overlapping the hero section at the bottom center."
+    },
+    "bento_features": {
+      "style": "Neumorphic/Glass hybrid cards. 1px brass border. Hover reveals macro tactile textures."
+    },
+    "room_cards": {
+      "style": "Tall portrait ratio (aspect-[3/4]). Image scale-up on hover, bottom gradient overlay with typography revealing on hover. Emerald heart icon for 'favorites' with spring animation."
+    },
+    "ai_concierge": {
+      "style": "Floating deep emerald pill/icon at bottom right. Opens a sleek crystal glass chat window with tactile UI."
+    }
+  },
+  "motion_and_interactions": {
+    "scroll": "Smooth momentum scrolling using Lenis.",
+    "reveals": "Staggered fade-up with Framer Motion, subtle scale (0.95 -> 1) on scroll enter.",
+    "micro_interactions": "Magnetic buttons for CTA, SVG path tracing for the St. Petersburg skyline on load."
+  },
+  "media_and_assets": {
+    "icons": "Use @phosphor-icons/react (Thin or Light weight) for elegant, architectural line icons.",
+    "images": [
+      {
+        "category": "texture_emerald_fabric",
+        "url": "https://static.prod-images.emergentagent.com/jobs/a5222b22-df61-46af-9de0-edb0b92bd3c7/images/ad781e25380d15f03873e6eadc9e4c8b0bbb14fca6b539fec17fd7cd8b5813fc.png",
+        "description": "Macro shot of deep emerald fabric texture for bento backgrounds or hover states."
+      },
+      {
+        "category": "texture_marble_brass",
+        "url": "https://static.prod-images.emergentagent.com/jobs/a5222b22-df61-46af-9de0-edb0b92bd3c7/images/7a85faa0e64e88436a4ff28dc71104faa324e97153fc050d167d80cc6c7ea159.png",
+        "description": "Chinchilla grey marble wall with thin brass metal inlays, use as background pattern."
+      },
+      {
+        "category": "room_luxury_bed",
+        "url": "https://static.prod-images.emergentagent.com/jobs/a5222b22-df61-46af-9de0-edb0b92bd3c7/images/0593d7b6f54594ef1d6ca505ae5addd3544e36bf631522caa98564b91ba56b9a.png",
+        "description": "Sleek modern minimalist bed in a luxury hotel."
+      },
+      {
+        "category": "room_apartment_living",
+        "url": "https://static.prod-images.emergentagent.com/jobs/a5222b22-df61-46af-9de0-edb0b92bd3c7/images/b981799b41be80ad124a467d9fa7181ae029967c58cd5a541891e4e4bd0c87a0.png",
+        "description": "Luxury apartment living room."
+      },
+      {
+        "category": "spb_architecture",
+        "url": "https://images.unsplash.com/photo-1692190145463-e49b90c29cef?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjd8MHwxfHNlYXJjaHwzfHxTYWludCUyMFBldGVyc2J1cmclMjBydXNzaWElMjBhcmNoaXRlY3R1cmUlMjBjaXR5fGVufDB8fHx8MTc3ODgzNjYzMnww&ixlib=rb-4.1.0&q=85",
+        "description": "Saint Petersburg domed architecture."
+      },
+      {
+        "category": "spb_river_city",
+        "url": "https://images.unsplash.com/photo-1635194490859-221bf0173708?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjd8MHwxfHNlYXJjaHw0fHxTYWludCUyMFBldGVyc2J1cmclMjBydXNzaWElMjBhcmNoaXRlY3R1cmUlMjBjaXR5fGVufDB8fHx8MTc3ODgzNjYzMnww&ixlib=rb-4.1.0&q=85",
+        "description": "River running through city next to tall buildings."
+      }
+    ]
+  },
+  "development_instructions": {
+    "libraries": [
+      "yarn add framer-motion @phosphor-icons/react lenis"
+    ],
+    "testing": "All interactive elements MUST have data-testid (e.g., data-testid='hero-booking-btn')",
+    "implementation_notes": "Use standard Shadcn components for forms/inputs, but heavily customize them with border-[#C5A059]/30 and bg-transparent for the 'architectural' look. Avoid Shadcn cards for main bento; use raw HTML+Tailwind for asymmetrical overlapping."
+  }
+}
