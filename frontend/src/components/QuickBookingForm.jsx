@@ -13,6 +13,7 @@ export default function QuickBookingForm() {
     const [open, setOpen] = useState(false);
     const [submitting, setSubmitting] = useState(false);
     const [done, setDone] = useState(false);
+    const [errorMsg, setErrorMsg] = useState("");
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
 
@@ -23,6 +24,7 @@ export default function QuickBookingForm() {
     const onSubmit = async (e) => {
         e.preventDefault();
         setSubmitting(true);
+        setErrorMsg("");
         try {
             await createLead({
                 name,
@@ -35,6 +37,9 @@ export default function QuickBookingForm() {
             setDone(true);
         } catch (err) {
             console.error(err);
+            setErrorMsg(
+                "Не удалось отправить заявку. Напишите нам в WhatsApp +7 952 225 41 41."
+            );
         } finally {
             setSubmitting(false);
         }
@@ -160,6 +165,14 @@ export default function QuickBookingForm() {
                     >
                         {submitting ? "Отправляем..." : "Перезвоните мне"}
                     </button>
+                    {errorMsg && (
+                        <div
+                            className="md:col-span-12 text-xs text-red-300/90 tracking-wide"
+                            data-testid="hero-lead-error"
+                        >
+                            {errorMsg}
+                        </div>
+                    )}
                 </motion.form>
             )}
 

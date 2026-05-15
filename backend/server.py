@@ -350,7 +350,11 @@ async def create_lead(lead: LeadIn):
 
 
 @api_router.get("/leads", response_model=List[LeadOut])
-async def list_leads():
+async def list_leads(x_admin_token: Optional[str] = None):
+    # Privacy: this endpoint exposes guest PII. Require an admin token (set via env).
+    admin_token = os.environ.get("ADMIN_TOKEN")
+    if not admin_token or x_admin_token != admin_token:
+        raise HTTPException(status_code=403, detail="Forbidden")
     leads = await db.leads.find({}, {"_id": 0}).sort("created_at", -1).to_list(500)
     return [LeadOut(**lead) for lead in leads]
 
