@@ -15,15 +15,15 @@ export default function Reviews() {
     return (
         <section
             id="reviews"
-            className="section-padding relative bg-[#242220]"
+            className="section-padding relative light-section"
             data-testid="reviews-section"
         >
             <div className="max-w-[1400px] mx-auto px-6 md:px-12">
                 <div className="text-center max-w-2xl mx-auto mb-16">
                     <span className="overline">06 · Отзывы</span>
-                    <h2 className="font-display font-light text-4xl sm:text-5xl lg:text-6xl text-white leading-[1.05] mt-4 tracking-tight">
+                    <h2 className="font-display font-light text-4xl sm:text-5xl lg:text-6xl text-[#1F1D1B] leading-[1.05] mt-4 tracking-tight">
                         Гости о{" "}
-                        <em className="text-[#C5A059] italic">нас.</em>
+                        <em className="text-[#8B7333] italic">нас.</em>
                     </h2>
                     <div className="brass-line w-32 mx-auto mt-6" />
                 </div>
@@ -36,13 +36,13 @@ export default function Reviews() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-50px" }}
                             transition={{ duration: 0.7, delay: i * 0.1 }}
-                            className="brass-border bg-[#1a1817] p-8 relative lift"
+                            className="brass-border bg-white p-8 relative lift"
                             data-testid={`review-${r.id}`}
                         >
                             <Quotes
                                 size={32}
                                 weight="fill"
-                                className="text-[#C5A059]/20 absolute top-6 right-6"
+                                className="text-[#8B7333]/25 absolute top-6 right-6"
                             />
                             <div className="flex items-center gap-4 mb-5">
                                 <img
@@ -52,10 +52,10 @@ export default function Reviews() {
                                     className="h-12 w-12 rounded-full object-cover brass-border"
                                 />
                                 <div>
-                                    <div className="font-display text-xl text-white">
+                                    <div className="font-display text-xl text-[#1F1D1B]">
                                         {r.author}
                                     </div>
-                                    <div className="text-[11px] tracking-wider text-white/55">
+                                    <div className="text-[11px] tracking-wider text-[#807A72]">
                                         {new Date(r.date).toLocaleDateString(
                                             "ru-RU",
                                             {
@@ -77,12 +77,12 @@ export default function Reviews() {
                                         className={
                                             idx < r.rating
                                                 ? "text-[#C5A059]"
-                                                : "text-white/20"
+                                                : "text-[#807A72]/40"
                                         }
                                     />
                                 ))}
                             </div>
-                            <p className="text-white/75 leading-relaxed">
+                            <p className="text-[#45413D] leading-relaxed">
                                 «{r.text}»
                             </p>
                         </motion.article>

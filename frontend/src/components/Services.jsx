@@ -58,20 +58,20 @@ export default function Services() {
     return (
         <section
             id="services"
-            className="section-padding relative bg-[#1a1817]"
+            className="section-padding relative light-section"
             data-testid="services-section"
         >
             <div className="max-w-[1400px] mx-auto px-6 md:px-12">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mb-16">
                     <div className="md:col-span-6">
                         <span className="overline">05 · Сервис</span>
-                        <h2 className="font-display font-light text-4xl sm:text-5xl lg:text-6xl text-white leading-[1.05] mt-4 tracking-tight">
+                        <h2 className="font-display font-light text-4xl sm:text-5xl lg:text-6xl text-[#1F1D1B] leading-[1.05] mt-4 tracking-tight">
                             Заботимся о{" "}
-                            <em className="text-[#C5A059] italic">мелочах.</em>
+                            <em className="text-[#8B7333] italic">мелочах.</em>
                         </h2>
                     </div>
                     <div className="md:col-span-6 md:pt-12">
-                        <p className="text-white/70 leading-relaxed font-light">
+                        <p className="text-[#45413D] leading-relaxed font-light">
                             Заезд с 11:00, выезд до 15:00. Возможен ранний заезд
                             по договорённости — напишите нам или попросите
                             Александра, нашего цифрового консьержа.
@@ -79,7 +79,7 @@ export default function Services() {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[#C5A059]/15">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[#8B7333]/20">
                     {SERVICES.map((s, i) => {
                         const Icon = s.icon;
                         return (
@@ -89,18 +89,18 @@ export default function Services() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-50px" }}
                                 transition={{ duration: 0.6, delay: i * 0.05 }}
-                                className="bg-[#1a1817] p-8 group hover:bg-[#242220] transition-colors duration-500 relative"
+                                className="bg-white p-8 group hover:bg-[#FBF8F1] transition-colors duration-500 relative"
                                 data-testid={`service-${i}`}
                             >
                                 <Icon
                                     size={36}
                                     weight="thin"
-                                    className="text-[#C5A059] transition-transform duration-500 group-hover:scale-110"
+                                    className="text-[#8B7333] transition-transform duration-500 group-hover:scale-110"
                                 />
-                                <h3 className="font-display text-2xl text-white mt-5 leading-tight">
+                                <h3 className="font-display text-2xl text-[#1F1D1B] mt-5 leading-tight">
                                     {s.title}
                                 </h3>
-                                <p className="text-white/55 text-sm mt-3 leading-relaxed">
+                                <p className="text-[#6B655D] text-sm mt-3 leading-relaxed">
                                     {s.desc}
                                 </p>
                             </motion.div>

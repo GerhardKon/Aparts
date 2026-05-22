@@ -22,20 +22,20 @@ export default function Rooms() {
     return (
         <section
             id="rooms"
-            className="section-padding relative bg-[#1a1817]"
+            className="section-padding relative light-section"
             data-testid="rooms-section"
         >
             <div className="max-w-[1400px] mx-auto px-6 md:px-12">
                 <div className="flex items-end justify-between flex-wrap gap-6 mb-14">
                     <div>
                         <span className="overline">03 · Каталог</span>
-                        <h2 className="font-display font-light text-4xl sm:text-5xl lg:text-6xl text-white leading-[1.05] mt-4 tracking-tight">
-                            Наши <em className="text-[#C5A059] italic">номера.</em>
+                        <h2 className="font-display font-light text-4xl sm:text-5xl lg:text-6xl text-[#1F1D1B] leading-[1.05] mt-4 tracking-tight">
+                            Наши <em className="text-[#8B7333] italic">номера.</em>
                         </h2>
-                        <p className="text-white/60 mt-4 max-w-xl leading-relaxed">
+                        <p className="text-[#6B655D] mt-4 max-w-xl leading-relaxed">
                             Пять адресов в самом центре — Гончарная (10, 11, 17),
                             Невский 124 и 4-я Советская, 8. Цена от{" "}
-                            <span className="text-[#C5A059] font-semibold">
+                            <span className="text-[#8B7333] font-semibold">
                                 1 800 ₽
                             </span>{" "}
                             за ночь.
@@ -62,30 +62,30 @@ export default function Rooms() {
                                 delay: idx * 0.08,
                                 ease: "easeOut",
                             }}
-                            className="group brass-border bg-[#242220] overflow-hidden lift cursor-pointer relative"
+                            className="group brass-border bg-white overflow-hidden lift cursor-pointer relative"
                             data-testid={`room-card-${room.id}`}
                             onClick={() => setActiveRoom(room)}
                         >
-                            <div className="relative aspect-[4/5] overflow-hidden bg-[#1a1817]">
+                            <div className="relative aspect-[4/5] overflow-hidden bg-[#1F1D1B]">
                                 <img
                                     src={room.images?.[0]}
                                     alt={room.name}
                                     loading="lazy"
                                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-110"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#1a1817] via-[#1a1817]/30 to-transparent" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#1F1D1B] via-[#1F1D1B]/30 to-transparent" />
                                 {/* Architectural corner */}
                                 <div className="absolute top-4 left-4 right-4 flex justify-between items-start">
-                                    <span className="overline glass px-3 py-1.5 rounded-full">
+                                    <span className="text-[11px] tracking-[0.28em] uppercase font-bold text-[#FDF8E4]/95 glass px-3 py-1.5 rounded-full">
                                         от {room.price_from.toLocaleString("ru-RU")} ₽
                                         / ночь
                                     </span>
                                     <button
                                         onClick={(e) => toggleFav(e, room.id)}
-                                        className={`h-10 w-10 rounded-full glass border border-[#C5A059]/30 flex items-center justify-center transition-colors ${
+                                        className={`h-10 w-10 rounded-full glass border border-[#C5A059]/40 flex items-center justify-center transition-colors ${
                                             favorites[room.id]
                                                 ? "text-[#00A585]"
-                                                : "text-white/70 hover:text-[#C5A059]"
+                                                : "text-white/85 hover:text-[#C5A059]"
                                         }`}
                                         aria-label="В избранное"
                                         data-testid={`room-fav-${room.id}`}
@@ -99,7 +99,7 @@ export default function Rooms() {
                                 </div>
 
                                 <div className="absolute bottom-0 inset-x-0 p-6">
-                                    <div className="overline mb-2">
+                                    <div className="text-[11px] tracking-[0.28em] uppercase font-bold text-[#C5A059] mb-2">
                                         {room.address}
                                     </div>
                                     <h3 className="font-display text-2xl text-white leading-tight">
@@ -109,16 +109,16 @@ export default function Rooms() {
                             </div>
 
                             <div className="p-6">
-                                <p className="text-white/65 text-sm leading-relaxed mb-4">
+                                <p className="text-[#45413D] text-sm leading-relaxed mb-4">
                                     {room.short}
                                 </p>
-                                <div className="flex items-center gap-4 text-[11px] tracking-widest uppercase text-white/55 mb-5">
+                                <div className="flex items-center gap-4 text-[11px] tracking-widest uppercase text-[#807A72] mb-5">
                                     <span className="flex items-center gap-1.5">
-                                        <Users size={14} className="text-[#C5A059]" />{" "}
+                                        <Users size={14} className="text-[#8B7333]" />{" "}
                                         {room.capacity} гостя
                                     </span>
                                     <span className="flex items-center gap-1.5">
-                                        <Ruler size={14} className="text-[#C5A059]" />{" "}
+                                        <Ruler size={14} className="text-[#8B7333]" />{" "}
                                         {room.size_m2} м²
                                     </span>
                                 </div>
@@ -126,19 +126,19 @@ export default function Rooms() {
                                     {room.features.slice(0, 4).map((f) => (
                                         <span
                                             key={f}
-                                            className="brass-border text-[11px] px-2.5 py-1 text-white/75"
+                                            className="brass-border text-[11px] px-2.5 py-1 text-[#45413D]"
                                         >
                                             {f}
                                         </span>
                                     ))}
                                 </div>
-                                <div className="flex items-center justify-between pt-4 border-t border-[#C5A059]/15">
-                                    <span className="text-[11px] tracking-widest uppercase text-[#C5A059]">
+                                <div className="flex items-center justify-between pt-4 border-t border-[#8B7333]/20">
+                                    <span className="text-[11px] tracking-widest uppercase text-[#8B7333]">
                                         подробнее
                                     </span>
                                     <ArrowUpRight
                                         size={18}
-                                        className="text-[#C5A059] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                                        className="text-[#8B7333] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
                                     />
                                 </div>
                             </div>
@@ -162,25 +162,25 @@ export default function Rooms() {
                             initial={{ scale: 0.95, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 0.95, opacity: 0 }}
-                            className="relative max-w-5xl w-full max-h-[90vh] overflow-y-auto bg-[#242220] brass-border-strong"
+                            className="relative max-w-5xl w-full max-h-[90vh] overflow-y-auto bg-white brass-border-strong"
                             onClick={(e) => e.stopPropagation()}
                         >
                             <button
                                 onClick={() => setActiveRoom(null)}
-                                className="absolute top-4 right-4 z-10 h-10 w-10 rounded-full glass border border-[#C5A059]/30 text-white/80 hover:text-white"
+                                className="absolute top-4 right-4 z-10 h-10 w-10 rounded-full glass border border-[#8B7333]/30 text-[#1F1D1B]/80 hover:text-[#1F1D1B]"
                                 data-testid="room-modal-close"
                             >
                                 ✕
                             </button>
-                            <div className="aspect-[16/9] relative overflow-hidden bg-[#1a1817]">
+                            <div className="aspect-[16/9] relative overflow-hidden bg-[#1F1D1B]">
                                 <img
                                     src={activeRoom.images?.[0]}
                                     alt={activeRoom.name}
                                     className="h-full w-full object-cover"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#1a1817] to-transparent" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#1F1D1B] to-transparent" />
                                 <div className="absolute bottom-6 left-6 right-6">
-                                    <div className="overline mb-2">
+                                    <div className="text-[11px] tracking-[0.28em] uppercase font-bold text-[#C5A059] mb-2">
                                         {activeRoom.address}
                                     </div>
                                     <h3 className="font-display text-4xl text-white">
@@ -191,7 +191,7 @@ export default function Rooms() {
                             <div className="p-8 grid grid-cols-1 md:grid-cols-3 gap-8">
                                 <div className="md:col-span-2">
                                     <span className="overline">О номере</span>
-                                    <p className="text-white/75 leading-relaxed mt-3">
+                                    <p className="text-[#45413D] leading-relaxed mt-3">
                                         {activeRoom.short}
                                     </p>
                                     <div className="brass-line my-6" />
@@ -200,7 +200,7 @@ export default function Rooms() {
                                         {activeRoom.features.map((f) => (
                                             <div
                                                 key={f}
-                                                className="brass-border px-3 py-2.5 text-sm text-white/80"
+                                                className="brass-border px-3 py-2.5 text-sm text-[#45413D]"
                                             >
                                                 {f}
                                             </div>
@@ -208,12 +208,12 @@ export default function Rooms() {
                                     </div>
                                 </div>
                                 <div>
-                                    <div className="brass-border p-6 text-center">
+                                    <div className="brass-border p-6 text-center bg-[#FBF8F1]">
                                         <span className="overline">от</span>
-                                        <div className="font-display text-4xl text-[#C5A059] my-2">
+                                        <div className="font-display text-4xl text-[#8B7333] my-2">
                                             {activeRoom.price_from.toLocaleString("ru-RU")} ₽
                                         </div>
-                                        <div className="text-xs text-white/60 tracking-wider">
+                                        <div className="text-xs text-[#6B655D] tracking-wider">
                                             за ночь
                                         </div>
                                         <button

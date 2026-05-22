@@ -70,10 +70,10 @@ export default function Header({ onOpenAssistant }) {
                         </svg>
                     </div>
                     <div className="flex flex-col leading-none">
-                        <span className="font-display text-xl sm:text-2xl tracking-wide text-white">
+                        <span className={`font-display text-xl sm:text-2xl tracking-wide transition-colors ${scrolled ? "text-[#1F1D1B]" : "text-white"}`}>
                             Kurdyukov
                         </span>
-                        <span className="overline mt-1 text-[9px] sm:text-[10px]">
+                        <span className={`mt-1 text-[9px] sm:text-[10px] tracking-[0.28em] uppercase font-bold transition-colors ${scrolled ? "text-[#8B7333]" : "text-[#C5A059]"}`}>
                             Санкт-Петербург
                         </span>
                     </div>
@@ -89,7 +89,7 @@ export default function Header({ onOpenAssistant }) {
                                 scrollTo(l.href);
                             }}
                             data-testid={`nav-link-${l.href.replace("#", "")}`}
-                            className="text-sm tracking-wide text-white/80 hover:text-[#C5A059] transition-colors duration-300"
+                            className={`text-sm tracking-wide transition-colors duration-300 ${scrolled ? "text-[#45413D] hover:text-[#8B7333]" : "text-white/80 hover:text-[#C5A059]"}`}
                         >
                             {l.label}
                         </a>
@@ -101,7 +101,7 @@ export default function Header({ onOpenAssistant }) {
                         onClick={onOpenAssistant}
                         data-testid="header-open-assistant"
                         aria-label="Открыть консьерж"
-                        className="hidden sm:flex h-10 w-10 items-center justify-center rounded-full border border-[#C5A059]/40 text-[#C5A059] hover:bg-[#C5A059]/10 hover:text-[#D4AF37] transition-all magnetic"
+                        className={`hidden sm:flex h-10 w-10 items-center justify-center rounded-full border transition-all magnetic ${scrolled ? "border-[#8B7333]/40 text-[#8B7333] hover:bg-[#8B7333]/10" : "border-[#C5A059]/40 text-[#C5A059] hover:bg-[#C5A059]/10 hover:text-[#D4AF37]"}`}
                     >
                         <Sparkle size={18} weight="duotone" />
                     </button>
@@ -114,7 +114,7 @@ export default function Header({ onOpenAssistant }) {
                     </button>
                     <button
                         onClick={() => setOpen(!open)}
-                        className="lg:hidden flex h-10 w-10 items-center justify-center text-white"
+                        className={`lg:hidden flex h-10 w-10 items-center justify-center transition-colors ${scrolled ? "text-[#1F1D1B]" : "text-white"}`}
                         data-testid="mobile-menu-toggle"
                         aria-label="Меню"
                     >
